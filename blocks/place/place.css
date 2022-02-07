@@ -1,0 +1,9 @@
+.place {
+  max-width       : 282px;
+  display         : grid;
+  grid-template   : repeat(2, 1fr) 78px / repeat(3, 1fr);
+  background-color: #fff;
+  border-radius   : 10px;
+  align-items     : center;
+  overflow        : hidden;
+}

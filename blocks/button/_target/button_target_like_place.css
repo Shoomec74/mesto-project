@@ -1,0 +1,19 @@
+.button_target_like_place {
+  background-color: #fff;
+  background-image: url('../../../images/button-like.svg');
+  min-width       : 22px;
+  min-height      : 19px;
+  grid-column     : 3 / span 1;
+  grid-row        : 3 / span 1;
+  justify-self    : center;
+  margin-left     : 25px;
+  transition      : opacity 0.4s ease-in-out;
+}
+
+.button_target_like_place:hover {
+  opacity: 0.6;
+}
+
+.button_target_like_place:active {
+  background-image: url('../../../images/button-like-active.svg');
+}

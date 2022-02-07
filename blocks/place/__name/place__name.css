@@ -1,0 +1,13 @@
+.place__name {
+  font-family  : 'Inter', 'Arial', sans-serif;
+  font-weight  : bold;
+  font-size    : 24px;
+  line-height  : 29px;
+  grid-column  : 1 / span 2;
+  grid-row     : 3 / span 1;
+  text-overflow: ellipsis;
+  white-space  : nowrap;
+  overflow     : hidden;
+  justify-items: center;
+  margin-left  : 20px;
+}

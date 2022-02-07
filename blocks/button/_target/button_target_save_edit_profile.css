@@ -1,0 +1,27 @@
+.button_target_save_edit_profile {
+  max-width       : 358px;
+  min-height      : 50px;
+  font-family     : 'Inter', 'Arial', sans-serif;
+  font-size       : 18px;
+  line-height     : 21px;
+  background-color: #000;
+  color           : #fff;
+  margin          : 18px 36px 37px;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.button_target_save_edit_profile:hover {
+  opacity: 0.6;
+}
+
+.button_target_save_edit_profile:focus {
+  color: red;
+}
+
+@media screen and (max-width: 581px) {
+  .button_target_save_edit_profile {
+    min-width : 238px;
+    min-height: 46px;
+    margin    : 15px 22px 25px;
+  }
+}

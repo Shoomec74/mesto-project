@@ -1,0 +1,31 @@
+.button_target_closed_edit_popup {
+  display         : block;
+  width           : 32px;
+  height          : 32px;
+  background-image: url('../../../images/close-button.svg');
+  background-color: rgba(0, 0, 0, 0);
+  min-width       : 22px;
+  min-height      : 19px;
+  position        : absolute;
+  right           : -40px;
+  top             : -40px;
+  transition      : opacity 0.4s ease-in-out;
+}
+
+.button_target_closed_edit_popup:hover {
+  opacity: 0.6;
+}
+
+.button_target_closed_edit_popup:focus {
+  transform : rotate(360deg);
+  transition: transform .3s ease-in-out;
+}
+
+@media screen and (max-width: 581px) {
+  .button_target_closed_edit_popup {
+    width : 20px;
+    height: 20px;
+    right : 0;
+    top   : -36px;
+  }
+}

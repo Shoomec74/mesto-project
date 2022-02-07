@@ -1,0 +1,42 @@
+/* Подключаем normalize.css + дополнительно сбросил всю геометрию у блоков, параграфов и заголовков */
+@import url('../vendor/normalize.css');
+/* Подключаем шрифты */
+@import url('../vendor/fonts/fonts.css');
+/* Подключаем стили страницы */
+@import url('../blocks/page/page.css');
+/* Подключаем переиспользуемые блоки */
+@import url('../blocks/button/button.css'); /* Используется в секции  profile, places, popup*/
+/* Подключаем стили header */
+@import url('../blocks/header/header.css');
+@import url('../blocks/header/__logo/header__logo.css');
+@import url('../blocks/header/__line/header__line.css');
+/* Подключаем стили profile */
+@import url('../blocks/profile/profile.css');
+@import url('../blocks/profile/__avatar/profile__avatar.css');
+@import url('../blocks/profile/__info/profile__info.css');
+@import url('../blocks/profile/__info-usermane/profile__info-username.css');
+@import url('../blocks/button/_target/button_target_edit-profile.css');
+@import url('../blocks/profile/__info-about-user/profile__info-about-user.css');
+@import url('../blocks/button/_target/button_target_add_profile.css');
+/* Подключаем стили places */
+@import url('../blocks/places/places.css');
+@import url('../blocks/places/__list/places__list.css');
+@import url('../blocks/place/place.css');
+@import url('../blocks/place/__name/place__name.css');
+@import url('../blocks/place/__image/place__image.css');
+@import url('../blocks/button/_target/button_target_like_place.css');
+/* Подключаем стили footer */
+@import url('../blocks/footer/footer.css');
+@import url('../blocks/footer/__copyright/footer__copyright.css');
+/* Подключаем стили popup edit profile */
+@import url('../blocks/popup/popup.css');
+@import url('../blocks/popup/__edit-profile/popup__edit-profile.css');
+@import url('../blocks/form/form.css');
+@import url('../blocks/form/__popup-edit-profile/form__popup-edit-profile.css');
+@import url('../blocks/popup/__edit-profile-heading/popup__edit-profile-heading.css');
+@import url('../blocks/form/__item/form__item.css');
+@import url('../blocks/form/__item/_el/form__item_el_ctrl_text.css');
+@import url('../blocks/button/_target/button_target_save_edit_profile.css');
+@import url('../blocks/button/_target/button_target_closed_edit_popup.css');
+/* Вкл/выкл модального окна */
+/*@import url('../blocks/popup/_status/popup_status_opened.css');*/

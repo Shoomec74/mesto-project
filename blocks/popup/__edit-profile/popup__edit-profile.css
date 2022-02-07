@@ -1,0 +1,7 @@
+.popup__edit-profile {
+  max-width  : 430px;
+  display    : flex;
+  align-items: center;
+  margin     : 0 auto;
+  padding    : 0 19px;
+}

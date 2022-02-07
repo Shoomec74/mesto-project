@@ -1,0 +1,28 @@
+.button_target_add_profile {
+  background-color: #000000;
+  border          : 2px solid #fff;
+  background-image: url('../../../images/add-button.svg');
+  min-width       : 150px;
+  min-height      : 50px;
+  align-self      : center;
+  justify-self    : end;
+  transition      : opacity 0.4s ease-in-out;
+}
+
+.button_target_add_profile:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 769px) {
+  .button_target_add_profile {
+    min-width : 75px;
+    min-height: 35px;
+  }
+}
+
+@media screen and (max-width: 581px) {
+  .button_target_add_profile {
+    min-width : 100%;
+    min-height: 50px;
+  }
+}

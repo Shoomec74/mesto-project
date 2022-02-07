@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Mesto Russia</title>
+</head>
+
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="header__logo"></div>
+      <div class="header__line"></div>
+    </header>
+    <main class="content">
+      <section class="profile">
+        <img class="profile__avatar" src="./images/avatar.webp" alt="аватар профиля">
+        <div class="profile__info">
+          <h1 class="profile__info-username">Жак-Ив Кусто</h1>
+          <button class="button button_target_edit-profile" type="button" form="form-edit-profile"
+            name="open-form-edit-profile"></button>
+          <p class="profile__info-about-user">Исследователь океана</p>
+        </div>
+        <button class="button button_target_add_profile" type="button" name="open-form-add-profile"></button>
+      </section>
+      <section class="places">
+        <ul class="places__list">
+          <li class="place">
+            <h3 class="place__name">Екатеринбург</h3>
+            <img src="./images/ekaterinburg.webp" alt="" class="place__image">
+            <button class="button button_target_like_place" type="submit" name="like-place" formmethod="post"
+              value="like"></button>
+          </li>
+          <li class="place">
+            <h3 class="place__name">Евпатория</h3>
+            <button class="button button_target_like_place" type="submit" name="like-place" formmethod="post"
+              value="like"></button>
+            <img src="./images/evpatorya.webp" alt="" class="place__image">
+          </li>
+          <li class="place">
+            <h3 class="place__name">Магнитогорск</h3>
+            <button class="button button_target_like_place" type="submit" name="like-place" formmethod="post"
+              value="like"> </button>
+            <img src="./images/magnitogorsk.webp" alt="" class="place__image">
+          </li>
+          <li class="place">
+            <h3 class="place__name">Москва</h3>
+            <button class="button button_target_like_place" type="submit" name="like-place" formmethod="post"
+              value="like"></button>
+            <img src="./images/moskow.webp" alt="" class="place__image">
+          </li>
+          <li class="place">
+            <h3 class="place__name">Уральское Бали</h3>
+            <button class="button button_target_like_place" type="submit" name="like-place" formmethod="post"
+              value="like"></button>
+            <img src="./images/ural-baly.webp" alt="" class="place__image">
+          </li>
+          <li class="place">
+            <h3 class="place__name">Сочи</h3>
+            <button class="button button_target_like_place" type="submit" name="like-place" formmethod="post"
+              value="like"></button>
+            <img src="./images/sochi.webp" alt="" class="place__image">
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+    </footer>
+  </div>
+  <div class="popup popup_status_opened">
+    <div class="popup__edit-profile">
+      <form action="" class="form" id="form-edit-profile">
+        <fieldset class="form__popup-edit-profile">
+          <button class="button button_target_closed_edit_popup" type="button" name="close-popup-edit-profile"></button>
+          <h2 class="popup__edit-profile-heading">Редактировать профиль</h2>
+          <input class="form__item form__item_el_ctrl_text" type="text" name="username" id="username" value=""
+            placeholder="Имя" required>
+          <input class="form__item form__item_el_ctrl_text" type="text" name="aboutuser" id="aboutuser" value=""
+            placeholder="О себе" required>
+          <button class="button button_target_save_edit_profile" type="submit" formmethod="get"
+            name="save-edit-profile">Сохранить</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

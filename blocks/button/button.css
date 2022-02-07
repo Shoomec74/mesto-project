@@ -7,6 +7,6 @@
 }
 
 .button:hover {
-  cursor : url('../../../images/coursor.svg'), pointer;
+  cursor : url('../../images/coursor.svg'), pointer;
 }
 

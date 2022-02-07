@@ -1,4 +1,4 @@
-# Проектная работа 2 ["Mesto Russia"](https://shoomec74.github.io/russian-travel/).
+# Проектная работа 2 ["Mesto Russia"](https://shoomec74.github.io/mesto-project/).
 #### Создана по итогу прохождения спринта второго месяца кураса "Веб разработчик +".
 ***
 ## Описание проекта:

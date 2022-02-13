@@ -8,6 +8,7 @@
   white-space  : nowrap;
   overflow     : hidden;
   grid-area    : about;
+  transition   : .6s;
 }
 
 @media screen and (max-width: 769px) {

@@ -8,12 +8,14 @@
   white-space  : nowrap;
   overflow     : hidden;
   grid-area    : username;
+  transition   : .6s;
 }
 
 @media screen and (max-width: 769px) {
   .profile__info-username {
     font-size  : 23px;
     line-height: 1.4;
+    transition : .6s;
   }
 }
 
@@ -21,5 +23,6 @@
   .profile__info-username {
     font-size  : 27px;
     line-height: 1.0;
+    transition : .6s;
   }
 }

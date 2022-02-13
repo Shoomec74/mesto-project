@@ -1,4 +1,4 @@
-.form__item_el_ctrl_text {
+.form__item_type_name {
   display      : block;
   min-width    : 358px;
   min-height   : 27px;
@@ -8,18 +8,18 @@
   transition   : box-shadow .5s ease-in-out;
 }
 
-.form__item_el_ctrl_text:hover {
+.form__item_type_name:hover {
   -webkit-box-shadow: -0.5px -1.5px 7.5px 1.5px #ffd6d6;
   -moz-box-shadow   : -0.5px -1.5px 7.5px 1.5px #ffd6d6;
   box-shadow        : -0.5px -1.5px 7.5px 1.5px #ffd6d6;
   transition        : box-shadow .5s ease-in-out;
 }
 
-.form__item_el_ctrl_text:focus {
+.form__item_type_name:focus {
   outline: 1px solid rgba(0, 0, 0, .2);
 }
 
-.form__item_el_ctrl_text::-webkit-input-placeholder {
+.form__item_type_name::-webkit-input-placeholder {
   font-size     : 14px;
   font-family   : 'Inter', 'Arial', sans-serif;
   line-height   : 1;
@@ -29,7 +29,7 @@
   transition    : opacity .5s ease;
 }
 
-.form__item_el_ctrl_text::-moz-placeholder {
+.form__item_type_name::-moz-placeholder {
   font-size     : 14px;
   font-family   : 'Inter', 'Arial', sans-serif;
   line-height   : 1;
@@ -39,7 +39,7 @@
   transition    : opacity .5s ease;
 }
 
-.form__item_el_ctrl_text::-ms-input-placeholder {
+.form__item_type_name::-ms-input-placeholder {
   font-size     : 14px;
   font-family   : 'Inter', 'Arial', sans-serif;
   line-height   : 1;
@@ -49,7 +49,7 @@
   transition    : opacity .5s ease;
 }
 
-.form__item_el_ctrl_text::placeholder {
+.form__item_type_name::placeholder {
   font-size     : 14px;
   font-family   : 'Inter', 'Arial', sans-serif;
   line-height   : 1;
@@ -59,28 +59,28 @@
   transition    : opacity .5s ease;
 }
 
-.form__item_el_ctrl_text:focus::-webkit-input-placeholder {
+.form__item_type_name:focus::-webkit-input-placeholder {
   opacity   : 0;
   transition: opacity .5s ease;
 }
 
-.form__item_el_ctrl_text:focus::-moz-placeholder {
+.form__item_type_name:focus::-moz-placeholder {
   opacity   : 0;
   transition: opacity .5s ease;
 }
 
-.form__item_el_ctrl_text:focus::-ms-input-placeholder {
+.form__item_type_name:focus::-ms-input-placeholder {
   opacity   : 0;
   transition: opacity .5s ease;
 }
 
-.form__item_el_ctrl_text::placeholder:focus {
+.form__item_type_name::placeholder:focus {
   opacity   : 0;
   transition: opacity .5s ease;
 }
 
 @media screen and (max-width: 581px) {
-  .form__item_el_ctrl_text {
+  .form__item_type_name {
     min-width   : 238px;
     margin-left : 22px;
     margin-right: 22px;

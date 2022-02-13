@@ -1,4 +1,4 @@
-.button_target_closed_edit_popup {
+.button_target_closed {
   display         : block;
   width           : 32px;
   height          : 32px;
@@ -12,17 +12,17 @@
   transition      : opacity 0.4s ease-in-out;
 }
 
-.button_target_closed_edit_popup:hover {
+.button_target_closed:hover {
   opacity: 0.6;
 }
 
-.button_target_closed_edit_popup:focus {
+.button_target_closed:focus {
   transform : rotate(360deg);
   transition: transform .3s ease-in-out;
 }
 
 @media screen and (max-width: 581px) {
-  .button_target_closed_edit_popup {
+  .button_target_closed {
     width : 20px;
     height: 20px;
     right : 0;

@@ -1,8 +1,8 @@
 .places__list {
   width        : 100%;
   display      : grid;
-  grid-template: repeat(2, 1fr) / repeat(3, 1fr);
-  margin       : 0 auto;
+  grid-template-columns: repeat(auto-fit, 282px);
+  justify-content: center;
   gap          : 20px 17px;
 }
 
@@ -10,14 +10,12 @@
 @media screen and (max-width: 769px) {
   .places__list {
     max-width    : 580px;
-    grid-template: repeat(3, 1fr) / repeat(2, 1fr);
+    margin: 0 auto;
   }
 }
 
 @media screen and (max-width: 581px) {
   .places__list {
-    max-width    : 282px;
-    grid-template: repeat(6, 361px) / repeat(1, 1fr);
     column-gap   : 0;
   }
 }

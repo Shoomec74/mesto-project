@@ -1,4 +1,4 @@
-.form__popup-edit-profile {
+.form__fieldset {
   display       : flex;
   max-width     : 430px;
   flex-direction: column;
@@ -6,7 +6,7 @@
 }
 
 @media screen and (max-width: 580px) {
-  .form__popup-edit-profile {
+  .form__fieldset {
     max-width : 282px;
     min-height: 322px;
   }

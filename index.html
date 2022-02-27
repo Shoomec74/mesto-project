@@ -20,52 +20,29 @@
         <img class="profile__avatar" src="./images/avatar.webp" alt="аватар профиля">
         <div class="profile__info">
           <h1 class="profile__info-username">Жак-Ив Кусто</h1>
-          <button class="button button_target_edit-profile" type="button"
-            name="open-form-edit-profile"></button>
+          <button class="button button_target_edit-profile" type="button" name="open-form-edit-profile"></button>
           <p class="profile__info-about-user">Исследователь океана</p>
         </div>
         <button class="button button_target_add-card" type="button" name="open-form-add-profile"></button>
       </section>
+
+
+
       <section class="places">
         <ul class="places__list">
-          <li class="place">
-            <h3 class="place__name">Екатеринбург</h3>
-            <img src="./images/ekaterinburg.webp" alt="52-х этажная круглая стеклянная башня Исеть." class="place__image">
-            <button class="button button_target_like" name="like-place" formmethod="post"
-              value="like"></button>
-          </li>
-          <li class="place">
-            <h3 class="place__name">Евпатория</h3>
-            <button class="button button_target_like" name="like-place" formmethod="post"
-              value="like"></button>
-            <img src="./images/evpatorya.webp" alt="Руины пирса торчащие на берегу Черного моря. Евпатория." class="place__image">
-          </li>
-          <li class="place">
-            <h3 class="place__name">Магнитогорск</h3>
-            <button class="button button_target_like" name="like-place" formmethod="post"
-              value="like"> </button>
-            <img src="./images/magnitogorsk.webp" alt="Монумент Тыл Фронту. Рабочий смотрит на восток, а воин на запад и перенимает выкованный мечь из Магнитогорской стали у рабочего." class="place__image">
-          </li>
-          <li class="place">
-            <h3 class="place__name">Москва</h3>
-            <button class="button button_target_like" name="like-place" formmethod="post"
-              value="like"></button>
-            <img src="./images/moskow.webp" alt="Стеклянные башни комплекса Москва-Сити." class="place__image">
-          </li>
-          <li class="place">
-            <h3 class="place__name">Уральское Бали</h3>
-            <button class="button button_target_like" name="like-place" formmethod="post"
-              value="like"></button>
-            <img src="./images/ural-baly.webp" alt="Заброшенный карьер, который заполнился водой и из-за особенностей грунта вода стала бюрюзового цвета, словно с лучших курортов мира." class="place__image">
-          </li>
-          <li class="place">
-            <h3 class="place__name">Сочи</h3>
-            <button class="button button_target_like" name="like-place" formmethod="post"
-              value="like"></button>
-            <img src="./images/sochi.webp" alt="Вид береговой линии с гостиничными комплексами Bridge Resort." class="place__image">
-          </li>
+          <template id="place">
+            <li class="place">
+              <h3 class="place__name"></h3>
+              <img class="place__image">
+              <button class="button button_target_like" name="like-place" formmethod="post" value="like"></button>
+            </li>
+          </template>
         </ul>
       </section>
+
+
+
+
     </main>
     <footer class="footer">
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
@@ -78,11 +55,10 @@
           <button class="button button_target_closed" type="button" name="close-popup-edit-profile"></button>
           <h2 class="popup__heading">Редактировать профиль</h2>
           <input class="form__item form__item_type_name" type="text" name="username" id="username" value=""
-            placeholder="Имя" required>
+            placeholder="Имя" >
           <input class="form__item form__item_type_about" type="text" name="aboutuser" id="aboutuser" value=""
-            placeholder="О себе" required>
-          <button class="button button_target_save" type="submit"
-            name="save-edit-profile">Сохранить</button>
+            placeholder="О себе">
+          <button class="button button_target_save" type="submit" name="save-edit-profile">Сохранить</button>
         </fieldset>
       </form>
     </div>

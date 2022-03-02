@@ -22,9 +22,11 @@
 @import url('../blocks/places/places.css');
 @import url('../blocks/places/__list/places__list.css');
 @import url('../blocks/place/place.css');
+@import url('../blocks/button/_target/button_target_delete.css');
 @import url('../blocks/place/__name/place__name.css');
 @import url('../blocks/place/__image/place__image.css');
 @import url('../blocks/button/_target/button_target_like.css');
+@import url('../blocks/button/_target/button_target_like-active.css');
 /* Подключаем стили footer */
 @import url('../blocks/footer/footer.css');
 @import url('../blocks/footer/__copyright/footer__copyright.css');

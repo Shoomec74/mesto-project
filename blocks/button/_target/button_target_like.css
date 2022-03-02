@@ -1,6 +1,6 @@
 .button_target_like {
-  background-color: #fff;
   background-image: url('../../../images/button-like.svg');
+  background-color: rgba(0, 0, 0, 0);
   min-width       : 22px;
   min-height      : 19px;
   grid-column     : 3 / span 1;

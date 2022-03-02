@@ -43,9 +43,9 @@ function createCard(name, link) {
   return placeElement.cloneNode(true);
 }
 
-//const a = 'Miami';
-//const b = 'https://i.pinimg.com/originals/14/85/7f/14857f89ac0b73330745414bb7b673df.jpg';
-//places.prepend(createCard(a,b));
+const a = 'Miami';
+const b = 'https://i.pinimg.com/originals/14/85/7f/14857f89ac0b73330745414bb7b673df.jpg';
+places.prepend(createCard(a,b));
 
 function openPopup() {
   popup.classList.add('popup_status_opened');
@@ -59,21 +59,15 @@ function closePopup() {
 
 initialCards(cardsContent);
 
-const likeBtn = document.querySelector('.button_target_like');
-const deleteCardBtn = document.querySelector('.button_target_delete');
-
 editBtn.addEventListener('click', (openPopup));
 closedPopupBtn.addEventListener('click', (closePopup));
 
 places.addEventListener('click', (evt) => {
   if (evt.target.className === 'button button_target_delete') {
-    const listItem = deleteCardBtn.closest('.place');
-    listItem.remove();
-    console.log('if сработало УРА!');
+    evt.target.parentElement.remove();
   }
-  else if (evt.target.className === 'button button_target_like') {
-    likeBtn.classList.toggle('button_target_like-active')
-    console.log('Ставлю лайк!');
+  else if (evt.target.className === 'button button_target_like' || evt.target.className === 'button button_target_like button_target_like-active') {
+    evt.target.classList.toggle('button_target_like-active');
   }
-  console.log('Жмакаем НЕ по кнопке удалить');
+  console.log('Событие на облати с карточками');
 });

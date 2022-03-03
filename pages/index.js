@@ -5,6 +5,10 @@ const closedPopupBtn = document.querySelector('.button_target_closed');
 const savePopupBtn = document.querySelector('.button_target_save');
 //-- Модалки --//
 const popup = document.querySelector('.popup');
+const popups = document.querySelectorAll('.popup');
+//-- Прочее --//
+const username = document.querySelector('.profile__info-username');
+const aboutUsername = document.querySelector('.profile__info-about-user');
 //-- Формы --//
 const form = popup.querySelector('.form');
 const nameInput = popup.querySelector('.form__item_type_name');
@@ -23,19 +27,24 @@ const cardsContent = [
   { name: 'Уральское Бали', src: './images/ural-baly.webp' },
   { name: 'Сочи', src: './images/sochi.webp' }
 ];
-
+//-- Инициализация карточек на страницу --//
 function initialCards(array) {
   array.forEach(element => {
     places.append(createCard(element.name, element.src));
   });
 }
-
+//-- Обработка редактирования профиля --//
 function formSubmitHandler(evt) {
   evt.preventDefault();
-  nameInput.value = username;
-  aboutInput.value = aboutUsername;
+  username.textContent = nameInput.value;
+  aboutUsername.textContent = aboutInput.value;
+  if (username.textContent === '' && aboutUsername.textContent === '') {
+    username.textContent = 'Ваше Имя?';
+    aboutUsername.textContent = 'Расскажите о себе.';
+  }
+  closePopup();
 }
-
+//-- Создание карточки, возвращает готовую ноду для вставки на страницу --//
 function createCard(name, link) {
   placeElement.querySelector('.place__name').textContent = name;
   placeImage.setAttribute('src', link);
@@ -43,24 +52,36 @@ function createCard(name, link) {
   return placeElement.cloneNode(true);
 }
 
-const a = 'Miami';
-const b = 'https://i.pinimg.com/originals/14/85/7f/14857f89ac0b73330745414bb7b673df.jpg';
-places.prepend(createCard(a,b));
+//const a = 'Miami';
+//const b = 'https://i.pinimg.com/originals/14/85/7f/14857f89ac0b73330745414bb7b673df.jpg';
+//places.prepend(createCard(a,b));
 
-function openPopup() {
-  popup.classList.add('popup_status_opened');
-  nameInput.value = document.querySelector('.profile__info-username').textContent;
-  aboutInput.value = document.querySelector('.profile__info-about-user').textContent;
+//-- Открытие модального окна --//
+function openPopup(indexPopup) {
+  if (indexPopup === 0) {
+    nameInput.value = username.textContent;
+    aboutInput.value = aboutUsername.textContent;
+  }
+  popups[indexPopup].classList.add('popup_status_opened');
 }
 
+//-- Закрытие модального окна --//
 function closePopup() {
   popup.classList.remove('popup_status_opened');
 }
 
 initialCards(cardsContent);
 
-editBtn.addEventListener('click', (openPopup));
-closedPopupBtn.addEventListener('click', (closePopup));
+form.addEventListener('submit', (formSubmitHandler));
+editBtn.addEventListener('click', () => openPopup(0));
+addBtn.addEventListener('click', () => openPopup(1));
+
+popups.forEach(el =>
+  el.addEventListener('click', (evt) => {
+    if (evt.target.className === 'button button_target_closed') {
+      evt.target.closest('.popup').classList.remove('popup_status_opened');
+    }
+  }));
 
 places.addEventListener('click', (evt) => {
   if (evt.target.className === 'button button_target_delete') {
@@ -69,5 +90,7 @@ places.addEventListener('click', (evt) => {
   else if (evt.target.className === 'button button_target_like' || evt.target.className === 'button button_target_like button_target_like-active') {
     evt.target.classList.toggle('button_target_like-active');
   }
-  console.log('Событие на облати с карточками');
+  else if (evt.target.className === 'place__image') {
+    openPopup(2);
+  }
 });

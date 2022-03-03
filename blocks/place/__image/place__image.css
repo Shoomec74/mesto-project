@@ -5,3 +5,8 @@
   grid-column: 1 / span 3;
   grid-row   : 1 / span 2;
 }
+
+
+.place__image:hover {
+  cursor: pointer;
+}

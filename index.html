@@ -42,7 +42,7 @@
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
   </div>
-  <div class="popup ">
+  <div class="popup popup_for_edit-profile">
     <div class="popup__container">
       <form action="" class="popup__form form" id="form-edit-profile" name="form-edit-profile">
         <fieldset class="form__fieldset">
@@ -55,6 +55,26 @@
           <button class="button button_target_save" type="submit" name="save-edit-profile">Сохранить</button>
         </fieldset>
       </form>
+    </div>
+  </div>
+  <div class="popup popup_for_add-place">
+    <div class="popup__container">
+      <form action="" class="popup__form form" id="form-edit-profile" name="form-edit-profile">
+        <fieldset class="form__fieldset">
+          <button class="button button_target_closed" type="button" name="close-popup-add-place"></button>
+          <h2 class="popup__heading">Новое место</h2>
+          <input class="form__item form__item_type_name" type="text" name="username" id="username" value=""
+            placeholder="Название">
+          <input class="form__item form__item_type_about" type="text" name="aboutuser" id="aboutuser" value=""
+            placeholder="Ссылка на картинку">
+          <button class="button button_target_save" type="submit" name="save-add-place">Сохранить</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <div class="popup popup_for_big-picture">
+    <div class="popup__container">
+      <p></p>
     </div>
   </div>
   <script src="./pages/index.js"></script>

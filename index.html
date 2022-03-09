@@ -9,40 +9,30 @@
   <title>Mesto Russia</title>
 </head>
 
-<body>
-  <div class="page">
-    <header class="header">
-      <div class="header__logo"></div>
-      <div class="header__line"></div>
-    </header>
-    <main class="content">
-      <section class="profile">
-        <img class="profile__avatar" src="./images/avatar.webp" alt="аватар профиля">
-        <div class="profile__info">
-          <h1 class="profile__info-username">Жак-Ив Кусто</h1>
-          <button class="button button_target_edit-profile" type="button" name="open-form-edit-profile"></button>
-          <p class="profile__info-about-user">Исследователь океана</p>
-        </div>
-        <button class="button button_target_add-card" type="button" name="open-form-add-profile"></button>
-      </section>
-      <section class="places">
-        <ul class="places__list">
-          <template id="place">
-            <li class="place">
-              <button class="button button_target_delete" name="delete-place"></button>
-              <h3 class="place__name"></h3>
-              <img class="place__image">
-              <button class="button button_target_like" name="like-place" formmethod="post" value="like"></button>
-            </li>
-          </template>
-        </ul>
-      </section>
-    </main>
-    <footer class="footer">
-      <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
-    </footer>
-  </div>
-  <div class="popup">
+<body class="page">
+  <header class="header">
+    <div class="header__logo"></div>
+    <div class="header__line"></div>
+  </header>
+  <main class="content">
+    <section class="profile">
+      <img class="profile__avatar" src="./images/avatar.webp" alt="аватар профиля">
+      <div class="profile__info">
+        <h1 class="profile__info-username">Жак-Ив Кусто</h1>
+        <button class="button button_target_edit-profile" type="button" name="open-form-edit-profile"></button>
+        <p class="profile__info-about-user">Исследователь океана</p>
+      </div>
+      <button class="button button_target_add-card" type="button" name="open-form-add-profile"></button>
+    </section>
+    <section class="places">
+      <ul class="places__list">
+      </ul>
+    </section>
+  </main>
+  <footer class="footer">
+    <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+  </footer>
+  <div class="popup popup_for_edit-profile">
     <div class="popup__container">
       <form action="" class="popup__form form" id="form-edit-profile" name="form-edit-profile">
         <fieldset class="form__fieldset">
@@ -57,7 +47,7 @@
       </form>
     </div>
   </div>
-  <div class="popup">
+  <div class="popup popup_for_add-place">
     <div class="popup__container">
       <form action="" class="popup__form form" id="form-add-place" name="form-add-place">
         <fieldset class="form__fieldset">
@@ -72,14 +62,23 @@
       </form>
     </div>
   </div>
-  <div class="popup">
+  <div class="popup popup_for_big-picture">
     <div class="popup__container popup__container_for_picture">
       <button class="button button_target_closed" type="button" name="close-popup-add-place"></button>
       <img src="" alt="" class="popup__image">
       <p class="popup__image-name"></p>
     </div>
   </div>
-  <script src="./pages/index.js"></script>
+  <template id="place">
+    <li class="place">
+      <button class="button button_target_delete" name="delete-place"></button>
+      <h3 class="place__name"></h3>
+      <img class="place__image">
+      <button class="button button_target_like" name="like-place" formmethod="post" value="like"></button>
+    </li>
+  </template>
+  <script src="./scripts/cards.js"></script>
+  <script src="./scripts/index.js"></script>
 </body>
 
 </html>

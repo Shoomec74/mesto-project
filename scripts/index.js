@@ -39,7 +39,6 @@ function createCard(name, link) {
   //-- По клику на иконку корзинки удаляем карточку с местом --//
   placeElement.querySelector('.button_target_delete').addEventListener('click', (evt) => {
     evt.target.closest('.place').remove();
-    console.log('Повесил событие для карточки');
   });
   //-- По клику на картинку места открываем попап с развернутой картинкой места --//
   placeElement.querySelector('.place__image').addEventListener('click', (evt) => {
@@ -114,6 +113,6 @@ placeAddButton.addEventListener('click', () => openPopup(popupForAddPlace));
 popups.forEach(el =>
   el.addEventListener('click', (evt) => {
     if (evt.target.className === 'button button_target_closed') {
-      evt.target.closest('.popup').classList.remove('popup_status_opened');
+      closePopup(el);
     }
   }));

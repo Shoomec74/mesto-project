@@ -77,6 +77,7 @@ function formSubmitHandlerAddPlace(evt) {
   linkInput.value = '';
   closePopup(popupForAddPlace);
 }
+
 //-- Открытие можального окна редактирования профиля с заполненными полями ввода--//
 function openPopupEditProfile() {
   nameInput.value = username.textContent;

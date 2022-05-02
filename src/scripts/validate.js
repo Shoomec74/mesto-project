@@ -2,9 +2,9 @@
 const showInputError = (form, formInput, validationMessage) => {
   //Добавляем класс со стилями ошибки поля ввода
   formInput.classList.add('form__input_type_error');
-  // Выбираем элемент ошибки на основе уникального класса 
+  // Выбираем элемент ошибки на основе уникального класса
   const formError = form.querySelector(`.${formInput.id}-error`);
-  // Заменим содержимое span с ошибкой на переданный параметр 
+  // Заменим содержимое span с ошибкой на переданный параметр
   formError.textContent = validationMessage;
   // Показываем сообщение об ошибке
   formError.classList.add('form__input-error_active');
@@ -14,7 +14,7 @@ const showInputError = (form, formInput, validationMessage) => {
 const hideInputError = (form, formInput) => {
   //Удаляем класс со стилями ошибки поля ввода
   formInput.classList.remove('form__input_type_error');
-  // Выбираем элемент ошибки на основе уникального класса 
+  // Выбираем элемент ошибки на основе уникального класса
   const formError = form.querySelector(`.${formInput.id}-error`);
   // Очистим сообщение об ошибке
   formError.textContent = '';
@@ -48,10 +48,10 @@ const setEventListeners = (form) => {
   });
 };
 
-const enableValidation = () => {
+export const enableValidation = (object) => {
   // Найдём все формы с указанным классом в DOM,
   // сделаем из них массив методом Array.from
-  const formList = Array.from(document.querySelectorAll('.form'));
+  const formList = Array.from(document.querySelectorAll('object.formSelector'));
   // Переберём полученную коллекцию
   formList.forEach((form) => {
     form.addEventListener('submit', (evt) => {
@@ -63,6 +63,3 @@ const enableValidation = () => {
     setEventListeners(form);
   });
 };
-
-// Вызовем функцию
-enableValidation();

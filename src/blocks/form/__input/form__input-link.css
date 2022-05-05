@@ -1,25 +1,25 @@
-.form__item_type_about {
+.form__input-link {
   display      : block;
   min-width    : 358px;
   min-height   : 27px;
-  margin       : 0 36px 30px;
+  margin       : 0 36px 5px;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
   box-shadow   : none;
   transition   : box-shadow .5s ease-in-out;
 }
 
-.form__item_type_about:hover {
-  -webkit-box-shadow: -0.5px -1.5px 7.5px 1.5px #ffd6d6;
-  -moz-box-shadow   : -0.5px -1.5px 7.5px 1.5px #ffd6d6;
-  box-shadow        : -0.5px -1.5px 7.5px 1.5px #ffd6d6;
+.form__input-link:hover {
+  -webkit-box-shadow: -0.5px -1.5px 7.5px 1.5px #d6d6ff;
+  -moz-box-shadow   : -0.5px -1.5px 7.5px 1.5px #d6d6ff;
+  box-shadow        : -0.5px -1.5px 7.5px 1.5px #d6d6ff;
   transition        : box-shadow .5s ease-in-out;
 }
 
-.form__item_type_about:focus {
+.form__input-link:focus {
   outline: 1px solid rgba(0, 0, 0, .2);
 }
 
-.form__item_type_about::-webkit-input-placeholder {
+.form__input-link::-webkit-input-placeholder {
   font-size     : 14px;
   font-family   : 'Inter', 'Arial', sans-serif;
   line-height   : 1;
@@ -29,7 +29,7 @@
   transition    : opacity .5s ease;
 }
 
-.form__item_type_about::-moz-placeholder {
+.form__input-link::-moz-placeholder {
   font-size     : 14px;
   font-family   : 'Inter', 'Arial', sans-serif;
   line-height   : 1;
@@ -39,7 +39,7 @@
   transition    : opacity .5s ease;
 }
 
-.form__item_type_about::-ms-input-placeholder {
+.form__input-link::-ms-input-placeholder {
   font-size     : 14px;
   font-family   : 'Inter', 'Arial', sans-serif;
   line-height   : 1;
@@ -49,7 +49,7 @@
   transition    : opacity .5s ease;
 }
 
-.form__item_type_about::placeholder {
+.form__input-link::placeholder {
   font-size     : 14px;
   font-family   : 'Inter', 'Arial', sans-serif;
   line-height   : 1;
@@ -59,28 +59,28 @@
   transition    : opacity .5s ease;
 }
 
-.form__item_type_about:focus::-webkit-input-placeholder {
+.form__input-link:focus::-webkit-input-placeholder {
   opacity   : 0;
   transition: opacity .5s ease;
 }
 
-.form__item_type_about:focus::-moz-placeholder {
+.form__input-link:focus::-moz-placeholder {
   opacity   : 0;
   transition: opacity .5s ease;
 }
 
-.form__item_type_about:focus::-ms-input-placeholder {
+.form__input-link:focus::-ms-input-placeholder {
   opacity   : 0;
   transition: opacity .5s ease;
 }
 
-.form__item_type_about::placeholder:focus {
+.form__input-link:focus::placeholder {
   opacity   : 0;
   transition: opacity .5s ease;
 }
 
 @media screen and (max-width: 581px) {
-  .form__item_type_about {
+  .form__input-link {
     min-width   : 238px;
     margin-left : 22px;
     margin-right: 22px;

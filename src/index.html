@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./pages/index.css">
   <title>Mesto Russia</title>
 </head>
 
@@ -16,7 +15,7 @@
   </header>
   <main class="content">
     <section class="profile">
-      <img class="profile__avatar" src="./images/avatar.webp" alt="аватар профиля">
+      <img class="profile__avatar" src="<%=require('./images/avatar.webp')%>" alt="аватар профиля">
       <div class="profile__info">
         <h1 class="profile__info-username">Жак-Ив Кусто</h1>
         <button class="button button_target_edit-profile" type="button" name="open-form-edit-profile"></button>
@@ -38,14 +37,17 @@
         <fieldset class="form__fieldset">
           <button class="button button_target_closed" type="button" name="close-popup-edit-profile"></button>
           <h2 class="popup__heading">Редактировать профиль</h2>
-          <input class="form__item form__item_type_name" type="text" name="username" id="username" value=""
-            placeholder="Имя" required>
-          <input class="form__item form__item_type_about" type="text" name="aboutuser" id="aboutuser" value=""
-            placeholder="О себе" required>
+          <input class="form__input form__input-name" type="text" name="username" id="username-input" value=""
+            placeholder="Имя" minlength="2" maxlength="40" required>
+          <span class="form__input-error username-input-error"></span>
+          <input class="form__input form__input-about" type="text" name="aboutuser" id="aboutuser-input" value=""
+            placeholder="О себе" minlength="2" maxlength="200" required>
+          <span class="form__input-error aboutuser-input-error"></span>
           <button class="button button_target_save" type="submit" name="form-edit-profile">Сохранить</button>
         </fieldset>
       </form>
     </div>
+
   </div>
   <div class="popup popup_for_add-place">
     <div class="popup__container">
@@ -53,10 +55,12 @@
         <fieldset class="form__fieldset">
           <button class="button button_target_closed" type="button" name="close-popup-add-place"></button>
           <h2 class="popup__heading">Новое место</h2>
-          <input class="form__item form__item_type_place" type="text" name="placename" id="placename" value=""
-            placeholder="Название" required>
-          <input class="form__item form__item_type_link" type="text" name="linkphoto" id="linkphoto" value=""
+          <input class="form__input form__input-place" type="text" name="placename" id="placename-input" value=""
+            placeholder="Название" minlength="2" maxlength="30" required>
+          <span class="form__input-error placename-input-error"></span>
+          <input class="form__input form__input-link" type="url" name="linkphoto" id="linkimage-input" value=""
             placeholder="Ссылка на картинку" required>
+          <span class="form__input-error linkimage-input-error"></span>
           <button class="button button_target_save" type="submit" name="form-add-place">Добавить</button>
         </fieldset>
       </form>
@@ -77,8 +81,6 @@
       <button class="button button_target_like" name="like-place" formmethod="post" value="like"></button>
     </li>
   </template>
-  <script src="./scripts/cards.js"></script>
-  <script src="./scripts/index.js"></script>
 </body>
 
 </html>

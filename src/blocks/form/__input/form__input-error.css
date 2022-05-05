@@ -1,0 +1,17 @@
+.form__input-error {
+  display: block;
+  visibility : hidden;
+  opacity    : 0;
+  min-width  : 358px;
+  margin     : 5px 0 13px 36px;
+  color      : red;
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-weight: normal;
+  font-size  : 12px;
+  line-height: 15px;
+  transition      : visibility 0.4s, opacity 0.5s linear;
+}
+
+.form__input-error:nth-child() {
+  margin-bottom: 32px;
+}

@@ -1,0 +1,14 @@
+.form__input_type_error {
+  border-bottom: 1px solid #f67373;
+  -webkit-box-shadow: -0.5px -1.5px 7.5px 1.5px #f67373;
+  -moz-box-shadow   : -0.5px -1.5px 7.5px 1.5px #f67373;
+  box-shadow        : -0.5px -1.5px 7.5px 1.5px #f67373;
+  transition        : box-shadow .5s ease-in-out;
+}
+
+.form__input_type_error:focus {
+  -webkit-box-shadow: -0.5px -1.5px 7.5px 1.5px #f67373;
+  -moz-box-shadow   : -0.5px -1.5px 7.5px 1.5px #f67373;
+  box-shadow        : -0.5px -1.5px 7.5px 1.5px #f67373;
+  transition        : box-shadow .5s ease-in-out;
+}

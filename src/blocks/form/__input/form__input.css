@@ -1,5 +1,6 @@
-.form__item {
+.form__input {
   margin : 0;
   padding: 0;
   border : none;
+  padding-bottom: 13px;
 }

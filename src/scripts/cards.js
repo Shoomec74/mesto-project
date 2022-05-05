@@ -1,9 +1,13 @@
-import {openPopup} from './utils.js';
-import {popupForBigPicture, popupImage, popupImageName,} from './data.js';
+//-- Импорты --//
+import { openPopup } from './utils.js';
+import { popupForBigPicture, popupImage, popupImageName, } from './data.js';
+
+//-- Экспорты --//
+export { createCard, initialCards };
 
 //-- Создание карточки, установка событий на каждый интерактивный элемент карточки,
 //   возвращает готовую ноду для вставки на страницу --//
-export function createCard(name, link) {
+const createCard = (name, link) => {
   const placeTemplate = document.querySelector('#place').content;
   const placeElement = placeTemplate.querySelector('.place').cloneNode(true);
   const placeImage = placeElement.querySelector('.place__image');
@@ -29,7 +33,7 @@ export function createCard(name, link) {
 }
 
 //-- Инициализация карточек на страницу --//
-export function initialCards(cards, container) {
+const initialCards = (cards, container) => {
   cards.forEach(card => {
     container.append(createCard(card.name, card.src));
   });

@@ -8,7 +8,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
-        publicPath: ''
+    publicPath: ''
   },
   mode: 'development',
   devServer: {
@@ -45,16 +45,16 @@ module.exports = {
           options: { importLoaders: 1 }
         },
           // Добавьте postcss-loader
-        'postcss-loader']
+          'postcss-loader']
       },
-      ]
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-    template: './src/index.html' // путь к файлу index.html
-  }),
-  new CleanWebpackPlugin(),
-  new MiniCssExtractPlugin(),
-]
+      template: './src/index.html' // путь к файлу index.html
+    }),
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin(),
+  ]
 }
 

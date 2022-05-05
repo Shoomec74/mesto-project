@@ -1,15 +1,20 @@
+//-- Импорты --//
 import './index.css';
-import {cardsContent, places, formEditProfile, formAddplace, profileEditButton, username, aboutUsername, nameInput, aboutInput, popupForEditProfile, placeAddButton, popups, placeInput, linkInput, popupForAddPlace} from './scripts/data.js';
-import {createCard, initialCards} from './scripts/cards.js';
-import {enableValidation} from './scripts/validate.js';
-import {openPopupEditProfile} from './scripts/modal.js';
-import {openPopup, closePopup} from './scripts/utils.js';
+import {
+  cardsContent, places, formEditProfile, formAddplace, profileEditButton, username, aboutUsername, nameInput,
+  aboutInput, popupForEditProfile, placeAddButton, placeInput, linkInput, popupForAddPlace, popups, validationSettings
+} from './scripts/data.js';
+import { createCard, initialCards } from './scripts/cards.js';
+import { openPopupEditProfile, setEventListenerForClosingPopup } from './scripts/modal.js';
+import { openPopup, closePopup } from './scripts/utils.js';
+import { resetInputsAndErrors } from './scripts/validate.js'
 
 //-- Инициализируем места при загрузке страницы --//
 initialCards(cardsContent, places);
+setEventListenerForClosingPopup();
 
 //-- Обработка формы редактирования профиля --//
-function formSubmitHandler(evt) {
+const formSubmitHandler = (evt) => {
   evt.preventDefault();
   username.textContent = nameInput.value;
   aboutUsername.textContent = aboutInput.value;
@@ -17,7 +22,7 @@ function formSubmitHandler(evt) {
 }
 
 //-- Обработка формы добавления карточки с местом --//
-function formSubmitHandlerAddPlace(evt) {
+const formSubmitHandlerAddPlace = (evt) => {
   evt.preventDefault();
   places.prepend(createCard(placeInput.value, linkInput.value));
   placeInput.value = '';
@@ -37,11 +42,13 @@ profileEditButton.addEventListener('click', (openPopupEditProfile));
 //-- Открываем модалку добавления карточки с местом --//
 placeAddButton.addEventListener('click', () => openPopup(popupForAddPlace));
 
-//-- Отлавливаем клик на кнопке закрытия всех попапов --//
-popups.forEach(el =>
-  el.addEventListener('click', (evt) => {
-    if (evt.target.className === 'button button_target_closed') {
+//-- Закрытие модальных окон по клавише escape --//
+popups.forEach(el => {
+  document.addEventListener('keydown', evt => {
+    if (evt.key === 'Escape') {
+      evt.stopPropagation();
       closePopup(el);
+      resetInputsAndErrors(el);
     }
-  }));
-
+  });
+});

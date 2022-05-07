@@ -1,9 +1,9 @@
 //-- Импорты --//
-import { openPopup } from './utils.js';
+import { openPopup } from './modal';
 import { popupForBigPicture, popupImage, popupImageName, } from './data.js';
 
 //-- Экспорты --//
-export { createCard, initialCards };
+export { createCard };
 
 //-- Создание карточки, установка событий на каждый интерактивный элемент карточки,
 //   возвращает готовую ноду для вставки на страницу --//
@@ -30,13 +30,6 @@ const createCard = (name, link) => {
     evt.target.classList.toggle('button_target_like-active');
   });
   return placeElement;
-}
-
-//-- Инициализация карточек на страницу --//
-const initialCards = (cards, container) => {
-  cards.forEach(card => {
-    container.append(createCard(card.name, card.src));
-  });
 }
 
 

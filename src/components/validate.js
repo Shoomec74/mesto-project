@@ -101,6 +101,7 @@ const resetInputsAndErrors = (closingPopup) => {
     closingPopup.querySelector('.form').reset();
     const errorsList = closingPopup.querySelectorAll('.form__input-error');
     errorsList.forEach(errorMessage => {
+      errorMessage.textContent = '';
       errorMessage.classList.remove(validationSettings.errorClass);
     });
     const inputsForm = closingPopup.querySelectorAll(validationSettings.inputSelector);

@@ -1,20 +1,26 @@
 //-- Импорты --//
-import './index.css';
+import '../index.css';
 import {
   cardsContent, places, formEditProfile, formAddplace, profileEditButton, username, aboutUsername, nameInput,
   aboutInput, popupForEditProfile, placeAddButton, placeInput, linkInput, popupForAddPlace, popups, validationSettings
-} from './scripts/data.js';
-import { createCard, initialCards } from './scripts/cards.js';
-import { openPopupEditProfile, setEventListenerForClosingPopup } from './scripts/modal.js';
-import { openPopup, closePopup } from './scripts/utils.js';
-import { resetInputsAndErrors } from './scripts/validate.js'
+} from '../components/data.js';
+import { createCard } from '../components/cards.js';
+import { setEventListenerForClosingPopup, openPopup, closePopup } from '../components/modal.js';
+import { enableValidation } from '../components/validate.js'
+
+//-- Инициализация карточек на страницу --//
+const initialCards = (cards, container) => {
+  cards.forEach(card => {
+    container.append(createCard(card.name, card.src));
+  });
+}
 
 //-- Инициализируем места при загрузке страницы --//
 initialCards(cardsContent, places);
 setEventListenerForClosingPopup();
 
 //-- Обработка формы редактирования профиля --//
-const formSubmitHandler = (evt) => {
+const handleProfileFormSubmit = (evt) => {
   evt.preventDefault();
   username.textContent = nameInput.value;
   aboutUsername.textContent = aboutInput.value;
@@ -22,33 +28,24 @@ const formSubmitHandler = (evt) => {
 }
 
 //-- Обработка формы добавления карточки с местом --//
-const formSubmitHandlerAddPlace = (evt) => {
+const handleAddCardFormSubmit = (evt) => {
   evt.preventDefault();
   places.prepend(createCard(placeInput.value, linkInput.value));
-  placeInput.value = '';
-  linkInput.value = '';
+  evt.currentTarget.reset();
   closePopup(popupForAddPlace);
 }
 
 //-- Сабмитим форму редактирования профиля --//
-formEditProfile.addEventListener('submit', (formSubmitHandler));
+formEditProfile.addEventListener('submit', (handleProfileFormSubmit));
 
 //-- Сабмитим форму добавления места профиля --//
-formAddplace.addEventListener('submit', (formSubmitHandlerAddPlace));
+formAddplace.addEventListener('submit', (handleAddCardFormSubmit));
 
 //-- Открываем модалку редактирвоания профиля --//
-profileEditButton.addEventListener('click', (openPopupEditProfile));
+profileEditButton.addEventListener('click', () => openPopup(popupForEditProfile));
 
 //-- Открываем модалку добавления карточки с местом --//
 placeAddButton.addEventListener('click', () => openPopup(popupForAddPlace));
 
-//-- Закрытие модальных окон по клавише escape --//
-popups.forEach(el => {
-  document.addEventListener('keydown', evt => {
-    if (evt.key === 'Escape') {
-      evt.stopPropagation();
-      closePopup(el);
-      resetInputsAndErrors(el);
-    }
-  });
-});
+//-- Валидация форм --//
+enableValidation(validationSettings);

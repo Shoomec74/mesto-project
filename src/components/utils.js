@@ -1,6 +1,6 @@
 import { validationSettings } from "./data";
-export {inactiveButtonBeforeSubmit};
+export {inactiveButtonAfterSubmit};
 
-const inactiveButtonBeforeSubmit = (submitFormButton) => {
-  submitFormButton.querySelector('.button_target_save').classList.add(validationSettings.inactiveButtonClass);
+const inactiveButtonAfterSubmit = (form) => {
+  form.querySelector('.button_target_save').classList.add(validationSettings.inactiveButtonClass);
 }

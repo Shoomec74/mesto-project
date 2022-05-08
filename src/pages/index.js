@@ -7,6 +7,7 @@ import {
 import { createCard } from '../components/cards.js';
 import { setEventListenerForClosingPopup, openPopup, closePopup } from '../components/modal.js';
 import { enableValidation, resetInputsAndErrors } from '../components/validate.js'
+import {inactiveButtonBeforeSubmit} from '../components/utils.js';
 
 //-- Инициализация карточек на страницу --//
 const initialCards = (cards, container) => {
@@ -25,14 +26,16 @@ const handleProfileFormSubmit = (evt) => {
   username.textContent = nameInput.value;
   aboutUsername.textContent = aboutInput.value;
   closePopup(popupForEditProfile);
+  inactiveButtonBeforeSubmit(evt.target);
 }
 
 //-- Обработка формы добавления карточки с местом --//
 const handleAddCardFormSubmit = (evt) => {
   evt.preventDefault();
   places.prepend(createCard(placeInput.value, linkInput.value));
-  evt.currentTarget.reset();
   closePopup(popupForAddPlace);
+  evt.currentTarget.reset();
+  inactiveButtonBeforeSubmit(evt.target);
 }
 
 //-- Сабмитим форму редактирования профиля --//

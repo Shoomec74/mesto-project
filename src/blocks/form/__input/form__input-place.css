@@ -1,7 +1,7 @@
 .form__input-place {
   display      : block;
   min-width    : 358px;
-  min-height   : 27px;
+  min-height   : 14px;
   margin       : 0 36px 5px;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
   box-shadow   : none;

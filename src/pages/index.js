@@ -2,11 +2,11 @@
 import '../index.css';
 import {
   cardsContent, places, formEditProfile, formAddplace, profileEditButton, username, aboutUsername, nameInput,
-  aboutInput, popupForEditProfile, placeAddButton, placeInput, linkInput, popupForAddPlace, popups, validationSettings
+  aboutInput, popupForEditProfile, placeAddButton, placeInput, linkInput, popupForAddPlace, validationSettings
 } from '../components/data.js';
 import { createCard } from '../components/cards.js';
 import { setEventListenerForClosingPopup, openPopup, closePopup } from '../components/modal.js';
-import { enableValidation } from '../components/validate.js'
+import { enableValidation, resetInputsAndErrors } from '../components/validate.js'
 
 //-- Инициализация карточек на страницу --//
 const initialCards = (cards, container) => {
@@ -42,10 +42,18 @@ formEditProfile.addEventListener('submit', (handleProfileFormSubmit));
 formAddplace.addEventListener('submit', (handleAddCardFormSubmit));
 
 //-- Открываем модалку редактирвоания профиля --//
-profileEditButton.addEventListener('click', () => openPopup(popupForEditProfile));
+profileEditButton.addEventListener('click', () => {
+  resetInputsAndErrors(popupForEditProfile);
+  nameInput.value = username.textContent;
+  aboutInput.value = aboutUsername.textContent;
+  openPopup(popupForEditProfile);
+});
 
 //-- Открываем модалку добавления карточки с местом --//
-placeAddButton.addEventListener('click', () => openPopup(popupForAddPlace));
+placeAddButton.addEventListener('click', () => {
+  resetInputsAndErrors(popupForAddPlace);
+  openPopup(popupForAddPlace);
+});
 
 //-- Валидация форм --//
 enableValidation(validationSettings);

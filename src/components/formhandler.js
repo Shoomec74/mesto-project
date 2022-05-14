@@ -30,7 +30,7 @@ const handleProfileFormSubmit = (evt) => {
     .catch((err) => {
       console.log(err);
     });
-    renderLoading(false, evt.target);
+  renderLoading(false, evt.target);
   closePopup(popupForEditProfile);
   inactiveButtonAfterSubmit(evt.target);
 }
@@ -52,7 +52,7 @@ const handleAddCardFormSubmit = (evt) => {
     .catch((err) => {
       console.log(err);
     });
-    renderLoading(false, evt.target);
+  renderLoading(false, evt.target);
   closePopup(popupForAddPlace);
   evt.currentTarget.reset();
   inactiveButtonAfterSubmit(evt.target);
@@ -75,7 +75,7 @@ const handleAvatarFormSubmit = (evt) => {
     .catch((err) => {
       console.log(err);
     });
-    renderLoading(false, evt.target);
+  renderLoading(false, evt.target);
   closePopup(popupForEditAvatar);
   evt.currentTarget.reset();
   inactiveButtonAfterSubmit(evt.target);

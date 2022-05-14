@@ -25,15 +25,15 @@ const createCard = (name, link, likes, userId, cardId) => {
         //-- По клику на иконку корзинки удаляем карточку с местом --//
         placeElement.querySelector('.button_target_delete').addEventListener('click', (evt) => {
           deleteCard(cardId)
-          .then((res) => {
-            if (res.ok) {
-              return res.json();
-            }
-            return Promise.reject(`Ошибка: ${res.status}`);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+            .then((res) => {
+              if (res.ok) {
+                return res.json();
+              }
+              return Promise.reject(`Ошибка: ${res.status}`);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
           evt.target.closest('.place').remove();
         });
       }
@@ -45,8 +45,8 @@ const createCard = (name, link, likes, userId, cardId) => {
       console.log(err);
     });
 
-    if (likes.length > 0) {
-      getUserInfo()
+  if (likes.length > 0) {
+    getUserInfo()
       .then((responseUserInfo) => {
         likes.forEach((el) => {
           if (responseUserInfo._id === el._id) {
@@ -54,7 +54,7 @@ const createCard = (name, link, likes, userId, cardId) => {
           }
         })
       })
-    }
+  }
 
   //-- По клику на картинку места открываем попап с развернутой картинкой места --//
   placeElement.querySelector('.place__image').addEventListener('click', (evt) => {
@@ -67,47 +67,47 @@ const createCard = (name, link, likes, userId, cardId) => {
   //-- По клику на иконку сердечка ставим лайк или дизлайк --//
   placeElement.querySelector('.button_target_like').addEventListener('click', (evt) => {
     //-- Если мы никогда не ставили лайк карчке добавляем лайк --//
-    if(!evt.target.className.includes('button_target_like-active')) {
+    if (!evt.target.className.includes('button_target_like-active')) {
       addLikesTocard(cardId)
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-      })
-      //-- Если сервер вернул обновленную карточку --//
-      .then((newCard) => {
-        evt.target.classList.add('button_target_like-active');
-        countPlaceLikes.classList.remove('place__count-like_unvisible');
-        countPlaceLikes.textContent = newCard.likes.length;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+        .then((res) => {
+          if (res.ok) {
+            return res.json();
+          }
+          return Promise.reject(`Ошибка: ${res.status}`);
+        })
+        //-- Если сервер вернул обновленную карточку --//
+        .then((newCard) => {
+          evt.target.classList.add('button_target_like-active');
+          countPlaceLikes.classList.remove('place__count-like_unvisible');
+          countPlaceLikes.textContent = newCard.likes.length;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
     //-- Если пользователь ставил когда-то лайк --//
     else {
       removeLikesTocard(cardId)
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-      })
-      //-- Если сервер вернул оновленную карточку --//
-      .then((newCard) => {
-        //-- Проверяем единственный ли был лайк на карточке --//
-        if (newCard.likes.length === 0) {
-          countPlaceLikes.classList.add('place__count-like_unvisible');
+        .then((res) => {
+          if (res.ok) {
+            return res.json();
+          }
+          return Promise.reject(`Ошибка: ${res.status}`);
+        })
+        //-- Если сервер вернул оновленную карточку --//
+        .then((newCard) => {
+          //-- Проверяем единственный ли был лайк на карточке --//
+          if (newCard.likes.length === 0) {
+            countPlaceLikes.classList.add('place__count-like_unvisible');
+            evt.target.classList.remove('button_target_like-active');
+          }
+          //-- Если дизлайк наш то обновляем кол-во --//
+          countPlaceLikes.textContent = newCard.likes.length;
           evt.target.classList.remove('button_target_like-active');
-        }
-        //-- Если дизлайк наш то обновляем кол-во --//
-        countPlaceLikes.textContent = newCard.likes.length;
-        evt.target.classList.remove('button_target_like-active');
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
 
   });

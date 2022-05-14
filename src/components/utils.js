@@ -39,11 +39,12 @@ function renderForCountLikes(countLikeElement, likes) {
   countLikeElement.textContent = likes.length;
 }
 
+//-- Добавление и удаление стилей для анимации загрузки пока загружаются дагные с сервера --//
 function renderLoading(isLoading, form) {
   const loading = 'Сохранение...';
   if (!isLoading) {
     form.querySelector('.button_target_save').classList.remove('button_loading');
-    if(form.name === 'form-edit-profile') {
+    if (form.name === 'form-edit-profile') {
       form.querySelector('.button_target_save').textContent = 'Сохранить';
     }
     else if (form.name === 'form-edit-avatar') {

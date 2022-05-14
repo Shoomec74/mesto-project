@@ -50,8 +50,6 @@ formEditProfile.addEventListener('submit', handleProfileFormSubmit);
 //-- Установка слушателя сабмита формы добавления карточки  --//
 formAddplace.addEventListener('submit', handleAddCardFormSubmit);
 
-
-
 //-- Открываем модалку редактирвоания профиля --//
 profileEditButton.addEventListener('click', () => {
   resetInputsAndErrors(popupForEditProfile);

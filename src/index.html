@@ -15,11 +15,13 @@
   </header>
   <main class="content">
     <section class="profile">
-      <img class="profile__avatar" src="<%=require('./images/avatar.webp')%>" alt="аватар профиля">
+      <img class="profile__avatar" src="">
+      <!--< "<%=require('./images/avatar.webp')%>" alt="аватар профиля"> Пример lodash выражения-->
+      <button class="button button_target_edit-avatar" type="button" name="open-form-edit-avatar"></button>
       <div class="profile__info">
-        <h1 class="profile__info-username">Жак-Ив Кусто</h1>
+        <h1 class="profile__info-username"></h1>
         <button class="button button_target_edit-profile" type="button" name="open-form-edit-profile"></button>
-        <p class="profile__info-about-user">Исследователь океана</p>
+        <p class="profile__info-about-user"></p>
       </div>
       <button class="button button_target_add-card" type="button" name="open-form-add-profile"></button>
     </section>
@@ -31,23 +33,36 @@
   <footer class="footer">
     <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
   </footer>
+  <div class="popup popup_for_edit-avatar">
+    <div class="popup__container">
+      <form action="" class="popup__form form" id="form-edit-avatar" name="form-edit-avatar">
+        <fieldset class="form__fieldset">
+          <button class="button button_target_closed" type="button" name="close-popup-edit-avatar"></button>
+          <h2 class="popup__heading">Обновить аватар</h2>
+          <input class="form__input form__input-avatar" type="url" name="avatarphoto" id="avatarimage-input"
+            placeholder="Введите URL фото или картинки" required>
+          <span class="form__input-error avatarimage-input-error"></span>
+          <button class="button button_target_save" type="submit" name="form-edit-profile">Обновить</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
   <div class="popup popup_for_edit-profile">
     <div class="popup__container">
       <form action="" class="popup__form form" id="form-edit-profile" name="form-edit-profile">
         <fieldset class="form__fieldset">
           <button class="button button_target_closed" type="button" name="close-popup-edit-profile"></button>
           <h2 class="popup__heading">Редактировать профиль</h2>
-          <input class="form__input form__input-name" type="text" name="username" id="username-input" value=""
-            placeholder="Имя" minlength="2" maxlength="40" required>
+          <input class="form__input form__input-name" type="text" name="username" id="username-input" placeholder="Имя"
+            minlength="2" maxlength="40" required>
           <span class="form__input-error username-input-error"></span>
-          <input class="form__input form__input-about" type="text" name="aboutuser" id="aboutuser-input" value=""
+          <input class="form__input form__input-about" type="text" name="aboutuser" id="aboutuser-input"
             placeholder="О себе" minlength="2" maxlength="200" required>
           <span class="form__input-error aboutuser-input-error"></span>
           <button class="button button_target_save" type="submit" name="form-edit-profile">Сохранить</button>
         </fieldset>
       </form>
     </div>
-
   </div>
   <div class="popup popup_for_add-place">
     <div class="popup__container">
@@ -55,10 +70,10 @@
         <fieldset class="form__fieldset">
           <button class="button button_target_closed" type="button" name="close-popup-add-place"></button>
           <h2 class="popup__heading">Новое место</h2>
-          <input class="form__input form__input-place" type="text" name="placename" id="placename-input" value=""
+          <input class="form__input form__input-place" type="text" name="placename" id="placename-input"
             placeholder="Название" minlength="2" maxlength="30" required>
           <span class="form__input-error placename-input-error"></span>
-          <input class="form__input form__input-link" type="url" name="linkphoto" id="linkimage-input" value=""
+          <input class="form__input form__input-link" type="url" name="linkphoto" id="linkimage-input"
             placeholder="Ссылка на картинку" required>
           <span class="form__input-error linkimage-input-error"></span>
           <button class="button button_target_save" type="submit" name="form-add-place">Добавить</button>
@@ -79,6 +94,7 @@
       <h3 class="place__name"></h3>
       <img class="place__image">
       <button class="button button_target_like" name="like-place" formmethod="post" value="like"></button>
+      <p class="place__count-like"></p>
     </li>
   </template>
 </body>

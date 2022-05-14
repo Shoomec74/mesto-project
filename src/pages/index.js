@@ -1,48 +1,56 @@
 //-- Импорты --//
 import '../index.css';
+import { getInitialCards, getUserInfo } from '../components/api.js'
 import {
-  cardsContent, places, formEditProfile, formAddplace, profileEditButton, username, aboutUsername, nameInput,
-  aboutInput, popupForEditProfile, placeAddButton, placeInput, linkInput, popupForAddPlace, validationSettings
+  places, formEditProfile, formAddplace, profileEditButton, username, aboutUsername, nameInput,
+  aboutInput, popupForEditProfile, placeAddButton, popupForAddPlace, validationSettings,
+  avatarEditButton, popupForEditAvatar, formEditAvatar, avatar
 } from '../components/data.js';
 import { createCard } from '../components/cards.js';
-import { setEventListenerForClosingPopup, openPopup, closePopup } from '../components/modal.js';
+import { setEventListenerForClosingPopup, openPopup } from '../components/modal.js';
 import { enableValidation, resetInputsAndErrors } from '../components/validate.js'
-import {inactiveButtonAfterSubmit} from '../components/utils.js';
+import { handleAvatarFormSubmit, handleProfileFormSubmit, handleAddCardFormSubmit, } from '../components/formhandler.js';
 
 //-- Инициализация карточек на страницу --//
 const initialCards = (cards, container) => {
   cards.forEach(card => {
-    container.append(createCard(card.name, card.src));
+    container.append(createCard(card.name, card.link, card.likes, card.owner._id, card._id));
   });
 }
 
-//-- Инициализируем места при загрузке страницы --//
-initialCards(cardsContent, places);
+//-- Инициализируем данные профиля --//
+getUserInfo()
+  .then((responseUserInfo) => {
+    username.textContent = responseUserInfo.name;
+    aboutUsername.textContent = responseUserInfo.about;
+    avatar.setAttribute('src', `${responseUserInfo.avatar}`);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+//-- Инициализируем карточек при загрузке страницы --//
+getInitialCards()
+  .then((result) => {
+    initialCards(result, places);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+//-- Установка слушателей для закрытия попапов  --//
 setEventListenerForClosingPopup();
 
-//-- Обработка формы редактирования профиля --//
-const handleProfileFormSubmit = (evt) => {
-  evt.preventDefault();
-  username.textContent = nameInput.value;
-  aboutUsername.textContent = aboutInput.value;
-  closePopup(popupForEditProfile);
-  inactiveButtonAfterSubmit(evt.target);
-}
+//-- Установка слушателя сабмита формы редактирования аватара  --//
+formEditAvatar.addEventListener('submit', handleAvatarFormSubmit);
 
-//-- Обработка формы добавления карточки с местом --//
-const handleAddCardFormSubmit = (evt) => {
-  evt.preventDefault();
-  places.prepend(createCard(placeInput.value, linkInput.value));
-  closePopup(popupForAddPlace);
-  evt.currentTarget.reset();
-  inactiveButtonAfterSubmit(evt.target);
-}
+//-- Установка слушателя сабмита формы редактирования профиля  --//
+formEditProfile.addEventListener('submit', handleProfileFormSubmit);
 
-//-- Сабмитим форму редактирования профиля --//
-formEditProfile.addEventListener('submit', (handleProfileFormSubmit));
+//-- Установка слушателя сабмита формы добавления карточки  --//
+formAddplace.addEventListener('submit', handleAddCardFormSubmit);
 
-//-- Сабмитим форму добавления места профиля --//
-formAddplace.addEventListener('submit', (handleAddCardFormSubmit));
+
 
 //-- Открываем модалку редактирвоания профиля --//
 profileEditButton.addEventListener('click', () => {
@@ -56,6 +64,11 @@ profileEditButton.addEventListener('click', () => {
 placeAddButton.addEventListener('click', () => {
   resetInputsAndErrors(popupForAddPlace);
   openPopup(popupForAddPlace);
+});
+
+avatarEditButton.addEventListener('click', () => {
+  resetInputsAndErrors(popupForEditAvatar);
+  openPopup(popupForEditAvatar);
 });
 
 //-- Валидация форм --//

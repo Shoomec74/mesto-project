@@ -1,8 +1,15 @@
-import { validationSettings, popupSavedButton } from "./data";
-export { inactiveButtonAfterSubmit, renderForCountLikes, renderLoading };
+import { validationSettings } from "./data";
 
 const inactiveButtonAfterSubmit = (form) => {
-  form.querySelector('.button_target_save').classList.add(validationSettings.inactiveButtonClass);
+  const submitButton = form.querySelector('.button_target_save');
+  if (!submitButton.hasAttribute('disabled')) {
+    submitButton.classList.add(validationSettings.inactiveButtonClass);
+    submitButton.setAttribute('disabled', true);
+  }
+  else {
+    submitButton.classList.remove(validationSettings.inactiveButtonClass);
+    submitButton.removeAttibute('disabled');
+  }
 }
 
 //-- Отрисовка количества лайков в зависимости от их кол-ва и количества знаков в числе со сдвигом влево --//
@@ -40,22 +47,16 @@ function renderForCountLikes(countLikeElement, likes) {
 }
 
 //-- Добавление и удаление стилей для анимации загрузки пока загружаются дагные с сервера --//
-function renderLoading(isLoading, form) {
-  const loading = 'Сохранение...';
+function renderLoading(isLoading, form, defaultButtonText) {
+  const submitButton = form.querySelector('.button_target_save');
   if (!isLoading) {
-    form.querySelector('.button_target_save').classList.remove('button_loading');
-    if (form.name === 'form-edit-profile') {
-      form.querySelector('.button_target_save').textContent = 'Сохранить';
-    }
-    else if (form.name === 'form-edit-avatar') {
-      form.querySelector('.button_target_save').textContent = 'Обновить';
-    }
-    else if (form.name === 'form-add-place') {
-      form.querySelector('.button_target_save').textContent = 'Добавить';
-    }
+    submitButton.classList.remove('button_loading');
+    submitButton.textContent = defaultButtonText;
   }
   else {
-    form.querySelector('.button_target_save').classList.add('button_loading');
-    form.querySelector('.button_target_save').textContent = loading;
+    submitButton.classList.add('button_loading');
+    submitButton.textContent = '';
   }
 }
+
+export { inactiveButtonAfterSubmit, renderForCountLikes, renderLoading };

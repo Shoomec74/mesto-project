@@ -1,11 +1,8 @@
 //-- Импорты --//
 import { popups } from './data.js';
 
-//-- Экспорты --//
-export { setEventListenerForClosingPopup, openPopup, closePopup };
-
 //-- Слушатель для закрытия поапа по клавише Escaoe --//
-function setEventListenerForClosingPopupToKey(evt) {
+function handleEscKey(evt) {
   if (evt.key === 'Escape') {
     closePopup(document.querySelector('.popup_status_opened'));
   }
@@ -13,13 +10,13 @@ function setEventListenerForClosingPopupToKey(evt) {
 
 //-- Открытие модального окна --//
 const openPopup = (namePopup) => {
-  document.addEventListener('keydown', setEventListenerForClosingPopupToKey);
+  document.addEventListener('keydown', handleEscKey);
   namePopup.classList.add('popup_status_opened');
 }
 
 //-- Закрытие модального окна при submit формы --//
 const closePopup = (namePopup) => {
-  document.removeEventListener('keydown', setEventListenerForClosingPopupToKey);
+  document.removeEventListener('keydown', handleEscKey);
   namePopup.classList.remove('popup_status_opened');
 }
 
@@ -40,5 +37,5 @@ const setEventListenerForClosingPopup = () => {
     ));
 }
 
-
-
+//-- Экспорты --//
+export { setEventListenerForClosingPopup, openPopup, closePopup };

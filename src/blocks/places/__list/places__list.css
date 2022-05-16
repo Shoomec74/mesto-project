@@ -9,7 +9,7 @@
 
 @media screen and (max-width: 769px) {
   .places__list {
-    max-width    : 580px;
+    max-width    : 620px;
     margin: 0 auto;
   }
 }

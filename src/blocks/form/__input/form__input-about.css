@@ -1,6 +1,5 @@
 .form__input-about {
   display      : block;
-  min-width    : 358px;
   min-height   : 14px;
   margin       : 13px 36px 5px;
   border-bottom: 1px solid rgba(0, 0, 0, .2);

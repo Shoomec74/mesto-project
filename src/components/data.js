@@ -1,11 +1,3 @@
-//-- Экспорты --//
-export {
-  profileEditButton, placeAddButton, popupSavedButton, popup, popups, popupForEditProfile,
-  popupForAddPlace, popupForBigPicture, popupImage, popupImageName, username, aboutUsername, form, formEditProfile,
-  formAddplace, nameInput, aboutInput, placeInput, linkInput, places, validationSettings, avatarEditButton,
-  popupForEditAvatar, formEditAvatar, avatar, avatarInput, formError, popupError
-};
-
 //-- Кнопки --//
 const profileEditButton = document.querySelector('.button_target_edit-profile');
 const placeAddButton = document.querySelector('.button_target_add-card');
@@ -13,7 +5,6 @@ const popupSavedButton = document.querySelector('.button_target_save');
 const avatarEditButton = document.querySelector('.button_target_edit-avatar');
 
 //-- Модалки --//
-const popup = document.querySelector('.popup');
 const popups = document.querySelectorAll('.popup');
 const popupForEditAvatar = document.querySelector('.popup_for_edit-avatar');
 const popupForEditProfile = document.querySelector('.popup_for_edit-profile');
@@ -70,3 +61,11 @@ const validationSettings = {
   inputErrorClass: 'form__input_type_error',
   errorClass: 'form__input-error_active'
 }
+
+//-- Экспорты --//
+export {
+  profileEditButton, placeAddButton, popupSavedButton, popups, popupForEditProfile,
+  popupForAddPlace, popupForBigPicture, popupImage, popupImageName, username, aboutUsername, form, formEditProfile,
+  formAddplace, nameInput, aboutInput, placeInput, linkInput, places, validationSettings, avatarEditButton,
+  popupForEditAvatar, formEditAvatar, avatar, avatarInput, formError, popupError
+};

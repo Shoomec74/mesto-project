@@ -25,10 +25,3 @@
     margin-right: 22px;
   }
 }
-
-@media screen and (max-width: 321px) {
-  .form__input-error {
-    width   : 238px;
-    margin-right: 0;
-  }
-}

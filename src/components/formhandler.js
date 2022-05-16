@@ -41,7 +41,6 @@ const handleAddCardFormSubmit = (evt) => {
     .finally((res) => {
       renderLoading(false, evt.target, 'Добавить');
       closePopup(popupForAddPlace);
-      evt.currentTarget.reset();
       inactiveButtonAfterSubmit(evt.target);
     });
 }
@@ -60,7 +59,6 @@ const handleAvatarFormSubmit = (evt) => {
     .finally((res) => {
       renderLoading(false, evt.target, 'Обновить');
       closePopup(popupForEditAvatar);
-      evt.currentTarget.reset();
       inactiveButtonAfterSubmit(evt.target);
     });
 }

@@ -9,30 +9,30 @@ import {
 import { createCard } from '../components/cards.js';
 import { setEventListenerForClosingPopup, openPopup } from '../components/modal.js';
 import { enableValidation, resetInputsAndErrors } from '../components/validate.js'
-import { handleAvatarFormSubmit, handleProfileFormSubmit, handleAddCardFormSubmit, } from '../components/formhandler.js';
+import { handleAvatarFormSubmit, handleProfileFormSubmit, handleAddCardFormSubmit, } from '../components/formHandler.js';
 
 //-- Инициализация карточек на страницу --//
-const initialCards = (cards, container) => {
+const initialCards = (cards, container, userId) => {
   cards.forEach(card => {
-    container.append(createCard(card.name, card.link, card.likes, card.owner._id, card._id));
+    container.append(createCard(card.name, card.link, card.likes, card.owner._id, card._id, userId));
   });
 }
 
 //-- Инициализируем данные профиля --//
 getUserInfo()
   .then((responseUserInfo) => {
+    const userId = responseUserInfo._id;
     username.textContent = responseUserInfo.name;
     aboutUsername.textContent = responseUserInfo.about;
     avatar.setAttribute('src', `${responseUserInfo.avatar}`);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-
-//-- Инициализируем карточек при загрузке страницы --//
-getInitialCards()
-  .then((result) => {
-    initialCards(result, places);
+    //-- Инициализируем карточек при загрузке страницы --//
+    getInitialCards()
+      .then((result) => {
+        initialCards(result, places, userId);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   })
   .catch((err) => {
     console.log(err);

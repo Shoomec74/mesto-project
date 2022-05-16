@@ -1,9 +1,6 @@
 //-- Импорты --//
 import { validationSettings } from "./data.js";
 
-//-- Экспорты --//
-export { enableValidation, resetInputsAndErrors };
-
 // Функция, которая показывает ошибку ввода в поле конкретной формы с параметрами форма, поле ввода, сообщение ошибки валидации
 const showInputError = (form, formInput, validationMessage) => {
   //Добавляем класс со стилями ошибки поля ввода
@@ -31,9 +28,11 @@ const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
     // сделай кнопку неактивной
     buttonElement.classList.add(validationSettings.inactiveButtonClass);
+    buttonElement.setAttribute('disabled', true);
   } else {
     // иначе сделай кнопку активной
     buttonElement.classList.remove(validationSettings.inactiveButtonClass);
+    buttonElement.removeAttribute('disabled', false);
   }
 };
 
@@ -95,6 +94,7 @@ const enableValidation = (object) => {
     setEventListeners(form);
   });
 };
+
 //-- После закрытия модального окна на крестик ресетим инпуты и стили валидации
 const resetInputsAndErrors = (closingPopup) => {
   if (!closingPopup.className.includes('popup_for_big-picture')) {
@@ -110,3 +110,6 @@ const resetInputsAndErrors = (closingPopup) => {
     });
   }
 }
+
+//-- Экспорты --//
+export { enableValidation, resetInputsAndErrors };

@@ -1,6 +1,3 @@
-//-- Экспорты --//
-export { getInitialCards, getUserInfo, updateUserInfo, updateAvatar, addcardtoServer, deleteCard, addLikesTocard, removeLikesTocard }
-
 //-- Объект конфигурации JSON запросов --//
 const config = {
   baseUrl: 'https://nomoreparties.co/v1/plus-cohort-9',
@@ -15,12 +12,7 @@ const getInitialCards = () => {
   return fetch(`${config.baseUrl}/cards`, {
     headers: config.headers
   })
-    .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    });
+    .then(checkResponse);
 }
 
 //-- Getter с сервера для получения объекта с профилем --//
@@ -28,12 +20,7 @@ const getUserInfo = () => {
   return fetch(`${config.baseUrl}/users/me`, {
     headers: config.headers
   })
-    .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    });
+    .then(checkResponse);
 }
 
 //-- Обновление на сервере информации о профиле, возвращает обновленный объект с профилем --//
@@ -94,3 +81,15 @@ const removeLikesTocard = (id) => {
     headers: config.headers,
   });
 }
+
+const checkResponse = (res) => {
+  if (res.ok) {
+    return res.json();
+}
+    return Promise.reject(`Ошибка ${res.status}`);
+}
+
+
+//-- Экспорты --//
+export { getInitialCards, getUserInfo, updateUserInfo, updateAvatar, addcardtoServer,
+  deleteCard, addLikesTocard, removeLikesTocard, checkResponse }

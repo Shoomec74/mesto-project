@@ -22,6 +22,15 @@
   .button_target_save {
     min-width : 238px;
     min-height: 46px;
+    margin    : 15px 82px 25px;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .button_target_save {
+    max-width : 358px;
+    padding   : 14px 36px 14px;
+    min-height: 50px;
     margin    : 15px 22px 25px;
   }
 }

@@ -32,7 +32,8 @@ const updateUserInfo = (username, aboutUsername) => {
       name: username,
       about: aboutUsername,
     })
-  });
+  })
+  .then(checkResponse);
 }
 
 //-- Обновление на сервере аватарки подльзователя, возвращает обновленный объект с аватаром --//
@@ -43,7 +44,8 @@ const updateAvatar = (url) => {
     body: JSON.stringify({
       avatar: url
     })
-  });
+  })
+  .then(checkResponse);
 }
 
 //-- Отправляет объект с новой карточкой, который добавил пользователь, получает добавленную карточку с сервера --//
@@ -55,7 +57,8 @@ const addcardtoServer = (cardName, urlImage) => {
       name: cardName,
       link: urlImage
     })
-  });
+  })
+  .then(checkResponse);
 }
 
 //-- Удаляем карточку с сервера, получает измененный массив с карточками --//
@@ -63,7 +66,8 @@ const deleteCard = (id) => {
   return fetch(`${config.baseUrl}/cards/${id}`, {
     method: 'DELETE',
     headers: config.headers,
-  });
+  })
+  .then(checkResponse)
 }
 
 //-- Добавялем объект текущего профиля в массив лайкнувших карточку --//
@@ -71,7 +75,8 @@ const addLikesTocard = (id) => {
   return fetch(`${config.baseUrl}/cards/likes/${id}`, {
     method: 'PUT',
     headers: config.headers,
-  });
+  })
+  .then(checkResponse)
 }
 
 //-- Удаляем объект текущего профиля в массив лайкнувших карточку --//
@@ -79,7 +84,8 @@ const removeLikesTocard = (id) => {
   return fetch(`${config.baseUrl}/cards/likes/${id}`, {
     method: 'DELETE',
     headers: config.headers,
-  });
+  })
+  .then(checkResponse)
 }
 
 const checkResponse = (res) => {
@@ -88,7 +94,6 @@ const checkResponse = (res) => {
 }
     return Promise.reject(`Ошибка ${res.status}`);
 }
-
 
 //-- Экспорты --//
 export { getInitialCards, getUserInfo, updateUserInfo, updateAvatar, addcardtoServer,

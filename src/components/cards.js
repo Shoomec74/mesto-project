@@ -33,7 +33,7 @@ const createCard = (name, link, likes, cardOwnerId, cardId, userId) => {
     //-- По клику на иконку корзинки удаляем карточку с местом --//
     deleteButton.addEventListener('click', (evt) => {
       deleteCard(cardId)
-        .then(checkResponse, evt.target.closest('.place').remove())
+        .then(() => evt.target.closest('.place').remove())
         .catch((err) => {
           console.log(err);
         });
@@ -56,7 +56,6 @@ const createCard = (name, link, likes, cardOwnerId, cardId, userId) => {
     //-- Если мы никогда не ставили лайк карчке добавляем лайк --//
     if (!evt.target.className.includes('button_target_like-active')) {
       addLikesTocard(cardId)
-        .then(checkResponse)
         //-- Если сервер вернул обновленную карточку --//
         .then((newCard) => {
           evt.target.classList.add('button_target_like-active');
@@ -70,7 +69,6 @@ const createCard = (name, link, likes, cardOwnerId, cardId, userId) => {
     //-- Если пользователь ставил когда-то лайк --//
     else {
       removeLikesTocard(cardId)
-        .then(checkResponse)
         //-- Если сервер вернул оновленную карточку --//
         .then((newCard) => {
           //-- Проверяем единственный ли был лайк на карточке --//

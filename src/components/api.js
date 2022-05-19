@@ -1,3 +1,22 @@
+class Api {
+  constructor(baseUrl, headers){
+    this.baseUrl = baseUrl;
+    this.headers = headers;
+  }
+  getUserInfo = () => {
+    return fetch(`${this.baseUrl}/users/me`, {
+      headers: this.headers
+    })
+      .then(this._checkResponse);
+  }
+  _checkResponse = (res) => {
+    if (res.ok) {
+      return res.json();
+  }
+      return Promise.reject(`Ошибка ${res.status}`);
+  }
+}
+
 //-- Объект конфигурации JSON запросов --//
 const config = {
   baseUrl: 'https://nomoreparties.co/v1/plus-cohort-9',
@@ -6,6 +25,7 @@ const config = {
     'Content-Type': 'application/json'
   }
 }
+const api = new Api(config.baseUrl, config.headers);
 
 //-- Getter с сервера для получения массива с карточками --//
 const getInitialCards = () => {
@@ -97,4 +117,4 @@ const checkResponse = (res) => {
 
 //-- Экспорты --//
 export { getInitialCards, getUserInfo, updateUserInfo, updateAvatar, addcardtoServer,
-  deleteCard, addLikesTocard, removeLikesTocard, checkResponse }
+  deleteCard, addLikesTocard, removeLikesTocard, checkResponse, api}

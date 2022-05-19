@@ -1,6 +1,6 @@
 //-- Импорты --//
 import '../index.css';
-import { getInitialCards, getUserInfo } from '../components/api.js'
+import { getInitialCards, getUserInfo, api} from '../components/api.js'
 import {
   places, formEditProfile, formAddplace, profileEditButton, username, aboutUsername, nameInput,
   aboutInput, popupForEditProfile, placeAddButton, popupForAddPlace, validationSettings,
@@ -11,6 +11,8 @@ import { setEventListenerForClosingPopup, openPopup } from '../components/modal.
 import { enableValidation, resetInputsAndErrors } from '../components/validate.js'
 import { handleAvatarFormSubmit, handleProfileFormSubmit, handleAddCardFormSubmit, } from '../components/formHandler.js';
 
+
+api.getUserInfo().then((res) => console.log(res));
 //-- Инициализация карточек на страницу --//
 const initialCards = (cards, container, userId) => {
   cards.forEach(card => {
